@@ -42,6 +42,13 @@
     padding: 0 80px;
     background-position: top 30% right 30%;
   }
+  .hero p{
+  width: 300px;
+  font-size: 13px;
+  color: white;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+}
 }
 @media (max-width: 477px) {
   .section-p1 {

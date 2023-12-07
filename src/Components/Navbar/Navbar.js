@@ -15,7 +15,9 @@ const Navbar = () => {
   };
     const onLogout = () => {
       localStorage.removeItem('isLoggedIn');
-      navigate('/')
+      localStorage.removeItem('username');
+      localStorage.removeItem('email');
+      navigate('/login')
       window.location.reload();
     };
 
@@ -26,7 +28,7 @@ const Navbar = () => {
       </NavLink>
       <ul id="navbar" className={open === true ? 'activ' : ''}>
         <li>
-          <NavLink to="/home" activeclassname="active" className="navLink">
+          <NavLink to="/" activeclassname="active" className="navLink">
             Home
           </NavLink>
         </li>
@@ -50,11 +52,16 @@ const Navbar = () => {
             <i className="fas fa-shopping-bag"></i>
           </NavLink>
         </li>
-        <span>
+        <li>
+          <NavLink to="/login" className="navLink logi">
+            Log In
+          </NavLink>
+        </li>
+        <li>
           <NavLink onClick={onLogout} className="navLink">
             Logout
           </NavLink>
-        </span>
+        </li>
         <span id="close" onClick={() => close_navbar()}>
           <i className="fas fa-times"></i>
         </span>

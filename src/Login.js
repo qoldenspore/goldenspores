@@ -1,85 +1,70 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import SignInImg from './Assets/signin-image.jpg'
+import SignInImg from './Assets/signin-image.jpg';
 import SignInContext from './Context/signin-context';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
-    username:'',
+    username: '',
     email: '',
     password: '',
   });
   const [error, setError] = useState('');
-  const [storeUsername, setStoreUsername] = useState('')
+  const [storeUsername, setStoreUsername] = useState('');
 
-  const { getEmail , getUserName , onLogin} = useContext(SignInContext);
-  
+  const { getEmail, getUserName, onLogin } = useContext(SignInContext);
+
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      username: inputs.username,
+      email: inputs.email,
+      password: inputs.password,
+    };
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axios.get(
-            'https://goldensporesstore.000webhostapp.com/apiData.php',
-          );
-          if (res.status === 200) {
-  console.log(res)
-          }
-        } catch (err) {
-          console.error('Error fetching data:', err);
-        }
-      };
-      fetchData();
-    }, []);
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const formData = {
-    username: inputs.username,
-    email: inputs.email,
-    password: inputs.password,
-  };
+    try {
+      const res = await axios.post(
+        'https://goldensporesstore.000webhostapp.com/login.php',
+        { ...formData },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
 
-  try {
-    const res = await axios.post(
-      'https://goldensporesstore.000webhostapp.com/login.php',
-      formData,
-      // {
-      //   withCredentials : true
-      // }
-    );
-
-    console.log(res);
-
-    if (res) {
       console.log(res);
-      const storedUsername = res.data.username;
-      const storedEmail = res.data.email;
 
-      localStorage.setItem('username', storedUsername);
-      localStorage.setItem('email', storedEmail);
-      localStorage.setItem('isLoggedIn', '1');
-      getUserName(storedUsername);
-      getEmail(storedEmail);
-      setStoreUsername(storedUsername);
-      onLogin();
-      navigate('/home');
-      window.location.reload();
-    } else {
-      setError(res.data);
+      if (res) {
+        console.log(res);
+        const storedUsername = res.data.username;
+        const storedEmail = res.data.email;
+
+        localStorage.setItem('username', storedUsername);
+        localStorage.setItem('email', storedEmail);
+        localStorage.setItem('isLoggedIn', '1');
+        getUserName(storedUsername);
+        getEmail(storedEmail);
+        setStoreUsername(storedUsername);
+        onLogin();
+        navigate('/home');
+        window.location.reload();
+      } else {
+        setError(res.data);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setError('An error occurred during login.');
     }
-  } catch (error) {
-    console.error('Error during login:', error);
-    setError('An error occurred during login.');
-  }
-};
+  };
   useEffect(() => {
-    
-    console.log(storeUsername)
-  },[storeUsername])
+    console.log(storeUsername);
+  }, [storeUsername]);
   return (
     <div className="main">
       <section className="sign-in">
@@ -102,7 +87,7 @@ const handleSubmit = async (e) => {
                 id="login-form"
                 onSubmit={handleSubmit}
               >
-                <p className='error'>{error}</p>
+                <p className="error">{error}</p>
                 <div className="form-group">
                   <label htmlFor="your_name">
                     <i className="zmdi zmdi-account list-alt"></i>

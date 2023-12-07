@@ -243,7 +243,7 @@ const SingleProduct = () => {
           </div>
           <div className="single-pro-details">
             <h6>
-              <Link className='homeLink' to='/home'>Home</Link> / {currentProduct?.category}
+              <Link className='homeLink' to='/'>Home</Link> / {currentProduct?.category}
             </h6>
             <h4>{fileNameWithoutExtension?.replace(/-/g, ' ')}</h4>
             <h2>${+currentProduct?.price}</h2>

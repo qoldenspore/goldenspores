@@ -26,25 +26,24 @@ const SignUp = () => {
       password: inputs.password,
       cPassword: inputs.cPassword,
     };
+        const signUpAsync = async (formData) => {
+          try {
+            const response = await axios.post(
+              'https://goldensporesstore.000webhostapp.com/signup.php',
+              formData,
+            );
+            console.log(inputs);
+            console.log(response.data);
+            setPasswordError(response.data.passwordError);
+            setError(response.data.failed);
+            setSuccess(response.data.success);
+          } catch (error) {
+            console.error('Error signing up:', error);
+          }
+        };
+        signUpAsync(formData);
   };
-  useEffect(() => {
-    const signUpAsync = async (formData) => {
-      try {
-        const response = await axios.post(
-          'https://goldensporesstore.000webhostapp.com/signup.php',
-          formData,
-        );
-        console.log(inputs);
-        console.log(response.data);
-        setPasswordError(response.data.passwordError);
-        setError(response.data.failed);
-        setSuccess(response.data.success);
-      } catch (error) {
-        console.error('Error signing up:', error);
-      }
-    };
-    signUpAsync();
-  }, []);
+
   return (
     <div className="main">
       <section className="signup">

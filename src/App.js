@@ -39,9 +39,10 @@ function App() {
       <ProductContextProvider>
         <CartProvider>
           <div className="App">
-            {login && <Navbar />}
+            {/* {login && <Navbar />} */}
+            <Navbar />
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/about" element={<About />} />
               <Route path="/contactUs" element={<ContactUs />} />
@@ -54,7 +55,7 @@ function App() {
         </CartProvider>
         <Routes>
           <Route exact path="/sign-up" element={<SignUp />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </ProductContextProvider>
     </SignInProvider>

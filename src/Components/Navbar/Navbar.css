@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 ul{
   list-style: none;
@@ -58,6 +59,10 @@ ul{
 .welcome span{
   font-weight: 700;
 }
+.logi{
+  /* margin-right: 20px; */
+  text-align: center;
+}
 
 @media (max-width: 799px) {
   .section-p1 {
@@ -71,7 +76,7 @@ ul{
     position: fixed;
     top: 0;
     right: -300px;
-    height: 100vh;
+    height: 100%;
     width: 300px;
     background-color: #fff;
     /* background-color: #1e3588; */
