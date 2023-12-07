@@ -1,0 +1,122 @@
+#sideHeader {
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-right: 250px;
+}
+#sideNavbar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 3px 5px 8px 3px rgba(0, 0, 0, 0.068);
+}
+.active {
+  color: #088178;
+}
+#sideNavbar li {
+  list-style: none;
+  padding: 10px;
+  position: relative;
+}
+#sideNavbar li span {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+#sideNavbar li span:hover,
+#sideNavbar li span.active {
+  color: #088178;
+}
+
+#mobile {
+  display: none;
+  align-items: center;
+}
+#close {
+  display: none;
+}
+.close_cat {
+  display: none;
+}
+.close_cat i {
+  color: black;
+  font-size: 20px;
+}
+@media (max-width: 799px) {
+  .close_cat {
+    display: flex;
+    position: absolute;
+    left: 90%;
+    animation: rotate 2s infinite;
+    transition: 1s ease;
+  }
+  .rotate{
+    transform: rotate(-180deg);
+  }
+  .section-p1 {
+    padding: 40px 40px;
+  }
+  #sideNavbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s linear;
+  }
+  #sideNavbar.active {
+    left: 0px;
+  }
+  #sideHeader {
+    margin-right: 0px;
+  }
+  #sideNavbar li {
+    margin-bottom: 25px;
+  }
+  #mobile {
+    display: flex;
+  }
+  #mobile i {
+    color: #1a1a1a;
+    font-size: 24px;
+    padding-left: 20px;
+  }
+  #close {
+    display: initial;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #222;
+    font-size: 24px;
+  }
+  #lg-bag {
+    display: none;
+  }
+}
+@media (max-width: 477px) {
+  .close_cat {
+    display: block;
+  }
+  .section-p1 {
+    padding: 20px;
+  }
+  #header {
+    padding: 10px 30px;
+  }
+}

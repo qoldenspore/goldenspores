@@ -1,0 +1,26 @@
+#cart table tbody tr td {
+  padding-top: 15px;
+}
+#cart table tbody td {
+  font-size: 13px;
+}
+.onhover {
+  cursor: pointer;
+}
+.change button {
+  padding: 0.2rem 0.5rem;
+  background: #088178;
+  color: white;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 23px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.change button:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); 
+}

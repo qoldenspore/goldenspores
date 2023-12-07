@@ -1,0 +1,19 @@
+.button {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: white;
+  background-color: #088178;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.button:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); 
+}

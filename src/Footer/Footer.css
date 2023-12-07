@@ -1,0 +1,68 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: black;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.logo {
+  margin-bottom: 30px;
+}
+footer h4 {
+  font-size: 14px;
+  padding-bottom: 20px;
+  color: white;
+}
+footer p {
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  color: rgba(255, 255, 255, 0.603);
+}
+footer a {
+  font-size: 13px;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.568);
+}
+.follow {
+  margin-top: 20px;
+}
+.follow i {
+  color: #465b52;
+  padding-right: 4px;
+  cursor: pointer;
+}
+.install .row img {
+  border: 1px solid #088178;
+  border-radius: 6px;
+}
+.install img {
+  margin: 10px 0 15px 0;
+}
+.follow i:hover,
+footer a:hover {
+  color: #088178;
+}
+.copyright {
+  width: 100%;
+  text-align: center;
+}
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+@media (max-width: 477px) {
+  footer .copyright {
+    text-align: start;
+  }
+}
