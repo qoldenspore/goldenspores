@@ -8,7 +8,7 @@ import CartContext from '../Context/cart-context';
 
 const Checkout = () => {
 
-    const cartCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
   const navigate = useNavigate();
   const form = useRef();

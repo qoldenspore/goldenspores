@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './ConfirmPay.css';
 import axios from 'axios';
 import Button from '../Components/UI/Button';
 import { Link } from 'react-router-dom';
+import CartContext from '../Context/cart-context';
 
 const ConfirmPay = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [payments, setPayments] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [charge, setCharge] = useState('');
+
+  const cartCtx = useContext(CartContext);
 
   const handleFileChange = (e) => {
-    // Handle file selection
     setSelectedFile(e.target.files[0]);
   };
   const isAnyFieldEmpty = !selectedFile;
@@ -42,8 +45,8 @@ const ConfirmPay = () => {
       <div className="accordion-container">
         <div className="accordion-fit">
           <h4>CHOOSE A PAYMENT METHOD</h4>
-          {payments.map((payment, index) => (
-            <div key={index} className="accordion-item">
+          {payments.map((payment, index) => {
+            return <div key={index} className="accordion-item">
               <div
                 className={`accordion-header ${
                   index === expandedIndex ? 'expanded' : ''
@@ -59,16 +62,31 @@ const ConfirmPay = () => {
                   <p>Charge: ${payment.charge}</p>
                 </div>
               )}
-            </div>
-          ))}
         </div>
-        <form className="form">
+              }
+          )}
+        </div>
+        <h4>
+          Total Amount:
+          <input
+            type="text"
+            name="totalAmount"
+            readOnly
+            defaultValue={payments.map(pay => {
+              return `$${cartCtx.totalAmount + parseFloat(pay.charge)}`;
+            })}
+            required
+          />
+        </h4>
+        <div className="proof">
           <h5>Upload Proof of Payment</h5>
-          <input type="file" onChange={handleFileChange} />
-          <button className="button" disabled={isAnyFieldEmpty}>
-            Upload
-          </button>
-        </form>
+          <form className="form">
+            <input type="file" onChange={handleFileChange} className="file" />
+            <button className="button" disabled={isAnyFieldEmpty}>
+              Upload
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );
