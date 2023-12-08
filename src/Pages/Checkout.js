@@ -98,14 +98,26 @@ const Checkout = () => {
         </Link>
         <h4>Customer Information</h4>
         <div className="form-sec-1">
-          <input type="text" name="username" defaultValue={username} required />
-          <input type="text" name="email" defaultValue={email} required />
+          <input
+            placeholder="Enter your username"
+            type="text"
+            name="username"
+            defaultValue={username}
+            required
+          />
+          <input
+            placeholder="Enter your email"
+            type="text"
+            name="email"
+            defaultValue={email}
+            required
+          />
         </div>
         <div className="form-sec-mid">
           <input
             type="text"
             name="address"
-            placeholder="Address"
+            placeholder="Enter your Address"
             onChange={(e) => setAddress(e.target.value)}
             required
           />
@@ -434,7 +446,6 @@ const Checkout = () => {
             required
           />
         </h4>
-
         <button className="button normal">Proceed to Payment</button>
       </form>
     </div>
