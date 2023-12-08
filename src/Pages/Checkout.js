@@ -51,7 +51,7 @@ const Checkout = () => {
       </div>
     );
   }
-  
+
 
   const cartItems = cart.map((item) => {
     return (
@@ -62,6 +62,7 @@ const Checkout = () => {
             name="Item"
             className="order-input"
             type="text"
+            readOnly
             defaultValue={item.name}
           />
         </div>
@@ -71,6 +72,7 @@ const Checkout = () => {
             name="Price"
             className="order-input"
             type="text"
+            readOnly
             defaultValue={`$${item.price}`}
           />
         </div>
@@ -80,6 +82,7 @@ const Checkout = () => {
             name="Amount"
             className="order-input"
             type="text"
+            readOnly
             defaultValue={`x${item.amount}`}
           />
         </div>
@@ -426,7 +429,8 @@ const Checkout = () => {
           <input
             type="text"
             name="totalAmount"
-            value={`$${cartCtx.totalAmount.toFixed(2)}`}
+            readOnly
+            defaultValue={`$${cartCtx.totalAmount.toFixed(2)}`}
             required
           />
         </h4>
