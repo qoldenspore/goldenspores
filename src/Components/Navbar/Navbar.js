@@ -52,16 +52,6 @@ const Navbar = () => {
             <i className="fas fa-shopping-bag"></i>
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/login" className="navLink logi">
-            Log In
-          </NavLink>
-        </li>
-        <li>
-          <NavLink onClick={onLogout} className="navLink">
-            Logout
-          </NavLink>
-        </li>
         <span id="close" onClick={() => close_navbar()}>
           <i className="fas fa-times"></i>
         </span>
