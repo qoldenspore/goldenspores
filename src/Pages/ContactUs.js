@@ -17,11 +17,11 @@ const ContactUs = () => {
           <div>
             <li>
               <i className="far fa-envelope"></i>
-              <p>contact@example.com</p>
+              <p>goldensporesstore@gmail.com</p>
             </li>
             <li>
               <i className="fas fa-phone-alt"></i>
-              <p>+449849589431</p>
+              <p>++447404413772</p>
             </li>
             <li>
               <i className="far fa-clock"></i>

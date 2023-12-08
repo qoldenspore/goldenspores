@@ -4,10 +4,9 @@ import CartItem from './CartItem';
 import CartContext from '../../Context/cart-context';
 import { useContext } from 'react';
 import Button from '../UI/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const navigate = useNavigate();
   const cartCtx = useContext(CartContext);
 
     const hasItems = cartCtx.items.length > 0;
@@ -20,9 +19,6 @@ const existingCart = cartCtx.items;
     const handleAddItem = (item) => {
       cartCtx.additem({ ...item, amount: 1 });
   };
-  const checkoutHandler = () => {
-    navigate('/checkout');
-  }
 
   console.log(existingCart)
   return (

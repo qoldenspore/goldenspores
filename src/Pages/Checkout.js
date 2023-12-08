@@ -1,10 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import './Checkout.css';
 import Button from '../Components/UI/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import CartContext from '../Context/cart-context';
+
 
 const Checkout = () => {
+
+    const cartCtx = useContext(CartContext);
+
   const navigate = useNavigate();
   const form = useRef();
   const [address, setAddress] = useState('');
@@ -15,17 +20,6 @@ const Checkout = () => {
   const email = localStorage.getItem('email');
   const cart = JSON.parse(localStorage.getItem('cart'));
 
-  function calculateTotal(arr) {
-    let total = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-      total += arr[i].price;
-    }
-
-    return total;
-  }
-
-  const totalAmount = calculateTotal(cart);
 
   console.log(form);
   const sendEmail = (e) => {
@@ -57,9 +51,7 @@ const Checkout = () => {
       </div>
     );
   }
-  const isAnyFieldEmpty =
-    address.trim() === '' ||
-    city.trim() === '';
+  
 
   const cartItems = cart.map((item) => {
     return (
@@ -103,18 +95,8 @@ const Checkout = () => {
         </Link>
         <h4>Customer Information</h4>
         <div className="form-sec-1">
-          <input
-            type="text"
-            name="username"
-            defaultValue={username}
-            required
-          />
-          <input
-            type="text"
-            name="email"
-            defaultValue={email}
-            required
-          />
+          <input type="text" name="username" defaultValue={username} required />
+          <input type="text" name="email" defaultValue={email} required />
         </div>
         <div className="form-sec-mid">
           <input
@@ -444,7 +426,7 @@ const Checkout = () => {
           <input
             type="text"
             name="totalAmount"
-            value={`$${totalAmount}`}
+            value={`$${cartCtx.totalAmount.toFixed(2)}`}
             required
           />
         </h4>

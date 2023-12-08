@@ -1,5 +1,4 @@
 import './App.css';
-// import { useState } from 'react';
 import Navbar from './Components/Navbar/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
@@ -11,8 +10,6 @@ import { useState, useEffect, useContext } from 'react';
 import ContactUs from './Pages/ContactUs';
 import Login from './Login';
 import SignUp from './SignUp';
-import axios from 'axios'
-  ;
 import Cart from './Components/Cart/Cart';
 import CartProvider from './Context/CartContextProvider';
 import SignInProvider from './Context/SignInProvider';
@@ -39,7 +36,6 @@ function App() {
       <ProductContextProvider>
         <CartProvider>
           <div className="App">
-            {/* {login && <Navbar />} */}
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />

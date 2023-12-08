@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import SignUpImg from './Assets/signup-image.jpg';
 import { Link } from 'react-router-dom';

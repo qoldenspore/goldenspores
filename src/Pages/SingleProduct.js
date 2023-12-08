@@ -230,7 +230,7 @@ const SingleProduct = () => {
       <form onSubmit={submitHandler}>
         <div key={currentProduct?.id} id="prodetails" className="section-p1">
           <div className="single-pro-image">
-            <Link to="/home">
+            <Link to="/"> 
               <button className="close">Back</button>
             </Link>
             <img

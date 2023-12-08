@@ -44,7 +44,6 @@ const AdminLogin = () => {
         console.log(res);
         const storedUsername = res.data.username;
         const storedEmail = res.data.email;
-
         localStorage.setItem('username', storedUsername);
         localStorage.setItem('email', storedEmail);
         localStorage.setItem('isLoggedIn', '1');

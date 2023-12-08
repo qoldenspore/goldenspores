@@ -9,15 +9,15 @@ const Footer = () => {
   return (
     <footer className="section-p1">
       <div className="col">
-        <Link to='/home'>
+        <Link to="/">
           <img className="logo" src={logo} alt="" />
         </Link>
         <h4>Contact</h4>
         <p>
-          <strong>Email Address: </strong> test@gmail.ccom
+          <strong>Email Address: </strong> goldensporesstore@gmail.ccom
         </p>
         <p>
-          <strong>Phone: </strong> +01 2222 365 /(+9) 01 2345 6789
+          <strong>Phone: </strong> +447404413772
         </p>
         <p>
           <strong>Hours: </strong> Open 24/7
