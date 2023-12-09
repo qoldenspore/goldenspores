@@ -10,7 +10,7 @@
   width: 200px;
 }
 .orderR h5{
-  margin-top: 450px;
+  margin-top: 50px;
 }
 .tickImg{
   text-align: center;
@@ -26,6 +26,29 @@
   color: #25b09b;
   margin-left: 8px;
   transition: all 3s;
+}
+
+.w-num {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: white;
+  background-color: #088178;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.w-num:hover{
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.button:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); 
 }
 @media (max-width: 529px) {
   .orderR h5{
