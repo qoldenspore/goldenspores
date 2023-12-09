@@ -64,36 +64,49 @@
 .bk {
   margin: 50px;
 }
-.file{
+.file {
   border-radius: 5px;
   background: rgb(241, 241, 241);
 }
-.proof{
+.proof {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
 }
-.cop{
+.cop {
   display: flex;
   align-items: center;
 }
-.cop p{
+.cop p {
   margin-top: 10px;
 }
-.copy_btn{
+.copy_btn {
   border: none;
   border-radius: 5px;
   margin: 10px;
-
+  margin-top: 0px;
 }
 @media (max-width: 799px) {
   .form {
     width: 80%;
   }
-  .cop{
-  flex-direction: column;
-  align-items: end;
+  .cop {
+    flex-direction: column;
+    align-items: start;
+  }
 }
-}
+  @media (max-width: 499px) {
+    .cop {
+      flex-direction: column;
+      align-items: start;
+    }
+    .cop p{
+      margin-bottom: 1px;;
+    }
+    .copy_btn{
+      margin-left: 1px;
+      margin-top: 2px;
+    }
+  }

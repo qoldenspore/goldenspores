@@ -20,7 +20,6 @@ const existingCart = cartCtx.items;
       cartCtx.additem({ ...item, amount: 1 });
   };
 
-  console.log(existingCart)
   return (
     <>
       <section id="cart" className="section-p1">
@@ -37,7 +36,6 @@ const existingCart = cartCtx.items;
           </thead>
           <tbody>
             {existingCart.map((item) => {
-              console.log(item);
               return (
                 <CartItem
                   id={item.id}

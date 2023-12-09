@@ -21,7 +21,6 @@ const Checkout = () => {
   const cart = JSON.parse(localStorage.getItem('cart'));
 
 
-  console.log(form);
   const sendEmail = (e) => {
     setLoading(true);
     e.preventDefault();
@@ -34,13 +33,11 @@ const Checkout = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           setLoading(false);
           navigate('/confirm-payment');
         },
         (error) => {
           setLoading(false);
-          console.log(error.text);
         },
       );
   };

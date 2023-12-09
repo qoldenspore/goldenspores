@@ -15,7 +15,6 @@ const ConfirmPay = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [payments, setPayments] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [number, setNumber] = useState(null);
 
   const cartCtx = useContext(CartContext);
 
@@ -56,10 +55,6 @@ const ConfirmPay = () => {
     navigator.clipboard.writeText(textToCopy);
     setCopiedIndex(index);
   };
-
-  const wNumber = parseFloat(number);
-  console.log(wNumber);
-
   return (
     <>
       <Link to="/checkout" className="bk">

@@ -4,37 +4,6 @@ import CartContext from '../../Context/cart-context';
 import { useContext } from 'react';
 
 const CartItem = (props) => {
-  /*
-  const cartCtx = useContext(CartContext);
-
-  const subTotal = (props.price * props.amount).toFixed(2);
-  // Assuming you have a function to remove items from the cart
-  const removeFromCart = (itemId) => {
-    // Retrieve existing cart items from localStorage
-    // Other logic for updating state or UI
-  };
-
-  const cartItemRemoveHandler = (id) => {
-    const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const updatedCart = existingCart.filter((item) => item.id !== id);
-    const storedTotalAmount =
-      JSON.parse(localStorage.getItem('totalAmount')) || 0;
-    const updateTotalAmount = storedTotalAmount - cartCtx.totalAmount;
-
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-
-    const chkAmount = localStorage.getItem('cart');
-    console.log(chkAmount);
-  };
-  const chkAmount = JSON.parse(localStorage.getItem('cart'));
-  console.log(chkAmount);
-  if (chkAmount.length > 0) {
-    chkAmount.forEach((el) => {
-      if (el.id) console.log(el);
-    });
-  }
-  */
   const cartCtx = useContext(CartContext);
 
   const subTotal = (props.price * props.amount).toFixed(2);
@@ -45,7 +14,6 @@ const CartItem = (props) => {
 
   const cartItemAddHandler = () => {
     cartCtx.addItem({ ...props, amount: 1 });
-    console.log(cartCtx.items);
 
   };
     const cartItemDecrementHandler = () => {

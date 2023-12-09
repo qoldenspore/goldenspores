@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const OrderReceive = () => {
   const [number, setNumber] = useState(null);
-console.log(number)
   useEffect(() => {
     fetchNumber();
   }, []);

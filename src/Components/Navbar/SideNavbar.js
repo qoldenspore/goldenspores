@@ -14,7 +14,6 @@ const SideNavbar = () => {
     if (open) {
       setOpen(false);
     }
-    console.log(open);
   };
 
   const categories = [
@@ -34,7 +33,6 @@ const SideNavbar = () => {
     'MICRODOSE SHROOMS',
   ];
   const renderCategory = (e) => {
-    console.log(e.target.innerText);
     setIsCategory(e.target.innerText);
   };
   const categorys = categories.map((cat) => {

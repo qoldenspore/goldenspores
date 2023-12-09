@@ -62,7 +62,6 @@ const SingleProduct = () => {
       price: +currentProduct.price,
     });
 
-    console.log(cartCtx.items);
 
   };
   useEffect(() => {

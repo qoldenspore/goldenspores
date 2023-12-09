@@ -20,7 +20,6 @@ function App() {
   const [login, setLogin] = useState(true);
 
   const winLocation = window.location.pathname;
-  console.log(isLoggedIn);
   useEffect(() => {
     if (winLocation === '/'|| winLocation==='/sign-up') {
       setLogin(false);
