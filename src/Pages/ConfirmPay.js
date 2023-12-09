@@ -46,23 +46,26 @@ const ConfirmPay = () => {
         <div className="accordion-fit">
           <h4>CHOOSE A PAYMENT METHOD</h4>
           {payments.map((payment, index) => {
-            return <div key={index} className="accordion-item">
-              <div
-                className={`accordion-header ${
-                  index === expandedIndex ? 'expanded' : ''
-                }`}
-                onClick={() => handleAccordionClick(index)}
-              >
-                <h3>{payment.payment_method}</h3>
-              </div>
-              {index === expandedIndex && (
-                <div className="accordion-content">
-                  <p>Bank Name: {payment.account_name}</p>
-                  <p>Account Number: {payment.account_number}</p>
-                  <p>Charge: ${payment.charge}</p>
+            return (
+              <div key={index} className="accordion-item">
+                <div
+                  className={`accordion-header ${
+                    index === expandedIndex ? 'expanded' : ''
+                  }`}
+                  onClick={() => handleAccordionClick(index)}
+                >
+                  <h3>{payment.payment_method}</h3>
                 </div>
-              )}
-        </div>
+                {index === expandedIndex && (
+                  <div className="accordion-content">
+                    <p>Name: {payment.account_name}</p>
+                    {payment.account_number.includes('@') ? <p>Email: {payment.account_number}</p> : ''}
+                    {payment.account_number.includes('$') ? <p>Cash tag: {payment.account_number}</p> : ''}
+                    <p>Charge: ${payment.charge}</p>
+                  </div>
+                )}
+              </div>
+            );
               }
           )}
         </div>
@@ -72,9 +75,7 @@ const ConfirmPay = () => {
             type="text"
             name="totalAmount"
             readOnly
-            defaultValue={payments.map(pay => {
-              return `$${cartCtx.totalAmount + parseFloat(pay.charge)}`;
-            })}
+            defaultValue={ `$${cartCtx.totalAmount.toFixed(2)}`}
             required
           />
         </h4>
