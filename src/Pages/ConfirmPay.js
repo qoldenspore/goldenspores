@@ -36,6 +36,19 @@ const ConfirmPay = () => {
     setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  const [copiedIndex, setCopiedIndex] = useState(null);
+
+  const handleCopyClick = (text, index) => {
+    let textToCopy = text;
+
+    if (text.includes(':')) {
+      textToCopy = text.split(': ')[1];
+    }
+
+    navigator.clipboard.writeText(textToCopy);
+    setCopiedIndex(index);
+  };
+
   return (
     <>
       <Link to="/checkout" className="bk">
@@ -63,7 +76,19 @@ const ConfirmPay = () => {
                     ) : (
                       ''
                     )}
-                    <p>{payment.account_number}</p>
+                    <div className="cop">
+                      <p>{payment.account_number}</p>
+                      <button
+                        className='copy_btn'
+                        onClick={() =>
+                          handleCopyClick(payment.account_number, index)
+                        }
+                      >
+                        Copy
+                      </button>
+                      {copiedIndex === index && <span> Copied!</span>}
+                    </div>
+
                     <p>Charge: ${payment.charge}</p>
                     {payment.description !== '' ? (
                       <p>Description: {payment.description}</p>
