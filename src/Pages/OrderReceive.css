@@ -1,0 +1,42 @@
+.orderR{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.orderR img{
+  width: 200px;
+}
+.orderR h5{
+  margin-top: 450px;
+}
+.tickImg{
+  text-align: center;
+}
+.tickImg h2{
+  font-weight: 700;
+}
+.w-num{
+  background: rgb(238, 238, 238);
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #25b09b;
+  margin-left: 8px;
+  transition: all 3s;
+}
+@media (max-width: 529px) {
+  .orderR h5{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .w-num{
+    width: fit-content;
+    margin-top: 10px;
+  }
+}

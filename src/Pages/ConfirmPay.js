@@ -4,11 +4,18 @@ import axios from 'axios';
 import Button from '../Components/UI/Button';
 import { Link } from 'react-router-dom';
 import CartContext from '../Context/cart-context';
+import { useNavigate } from 'react-router-dom';
 
 const ConfirmPay = () => {
+  const navigate = useNavigate();
+
+  const navig = () => {
+    navigate('/order-received')
+  }
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [payments, setPayments] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [number, setNumber] = useState(null);
 
   const cartCtx = useContext(CartContext);
 
@@ -32,6 +39,7 @@ const ConfirmPay = () => {
     }
   };
 
+
   const handleAccordionClick = (index) => {
     setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -49,6 +57,9 @@ const ConfirmPay = () => {
     setCopiedIndex(index);
   };
 
+  const wNumber = parseFloat(number);
+  console.log(wNumber);
+
   return (
     <>
       <Link to="/checkout" className="bk">
@@ -58,7 +69,6 @@ const ConfirmPay = () => {
         <div className="accordion-fit">
           <h4>CHOOSE A PAYMENT METHOD</h4>
           {payments.map((payment, index) => {
-            console.log(payment.account_name);
             return (
               <div key={index} className="accordion-item">
                 <div
@@ -79,7 +89,7 @@ const ConfirmPay = () => {
                     <div className="cop">
                       <p>{payment.account_number}</p>
                       <button
-                        className='copy_btn'
+                        className="copy_btn"
                         onClick={() =>
                           handleCopyClick(payment.account_number, index)
                         }
@@ -112,10 +122,18 @@ const ConfirmPay = () => {
           />
         </h4>
         <div className="proof">
-          <h5>Upload Proof of Payment</h5>
+          {
+            <h5>
+              Upload Proof of Payment
+            </h5>
+          }
           <form className="form">
             <input type="file" onChange={handleFileChange} className="file" />
-            <button className="button" disabled={isAnyFieldEmpty}>
+            <button
+              className="button"
+              onClick={navig}
+              disabled={isAnyFieldEmpty}
+            >
               Upload
             </button>
           </form>
