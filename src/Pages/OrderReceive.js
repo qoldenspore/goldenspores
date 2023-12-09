@@ -28,8 +28,8 @@ console.log(number)
       </div>
       <h5>
         To track your Order, Click on this link
-        <a href={`https://wa.me/${number}`} className="w-num">
-          {number}
+        <a href={`https://wa.me/message/${number}`} className="w-num">
+          Quick Shop
         </a>
       </h5>
     </section>
