@@ -9,7 +9,6 @@ const ConfirmPay = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [payments, setPayments] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [charge, setCharge] = useState('');
 
   const cartCtx = useContext(CartContext);
 
@@ -46,6 +45,7 @@ const ConfirmPay = () => {
         <div className="accordion-fit">
           <h4>CHOOSE A PAYMENT METHOD</h4>
           {payments.map((payment, index) => {
+            console.log(payment.account_name);
             return (
               <div key={index} className="accordion-item">
                 <div
@@ -58,16 +58,23 @@ const ConfirmPay = () => {
                 </div>
                 {index === expandedIndex && (
                   <div className="accordion-content">
-                    <p>Name: {payment.account_name}</p>
-                    {payment.account_number.includes('@') ? <p>Email: {payment.account_number}</p> : ''}
-                    {payment.account_number.includes('$') ? <p>Cash tag: {payment.account_number}</p> : ''}
+                    {payment.account_name !== '' ? (
+                      <p>Name: {payment.account_name}</p>
+                    ) : (
+                      ''
+                    )}
+                    <p>{payment.account_number}</p>
                     <p>Charge: ${payment.charge}</p>
+                    {payment.description !== '' ? (
+                      <p>Description: {payment.description}</p>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 )}
               </div>
             );
-              }
-          )}
+          })}
         </div>
         <h4>
           Total Amount:
@@ -75,7 +82,7 @@ const ConfirmPay = () => {
             type="text"
             name="totalAmount"
             readOnly
-            defaultValue={ `$${cartCtx.totalAmount.toFixed(2)}`}
+            defaultValue={`$${cartCtx.totalAmount.toFixed(2)}`}
             required
           />
         </h4>

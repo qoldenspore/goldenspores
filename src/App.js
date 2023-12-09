@@ -8,11 +8,8 @@ import ProductContextProvider from './Context/ProductContextProvider';
 import SingleProduct from './Pages/SingleProduct';
 import { useState, useEffect, useContext } from 'react';
 import ContactUs from './Pages/ContactUs';
-import Login from './Login';
-import SignUp from './SignUp';
 import Cart from './Components/Cart/Cart';
 import CartProvider from './Context/CartContextProvider';
-import SignInProvider from './Context/SignInProvider';
 import SignInContext from './Context/signin-context';
 import Checkout from './Pages/Checkout';
 import ConfirmPay from './Pages/ConfirmPay';
@@ -32,7 +29,6 @@ function App() {
   }, [winLocation, login]);
 
   return (
-    <SignInProvider>
       <ProductContextProvider>
         <CartProvider>
           <div className="App">
@@ -49,12 +45,7 @@ function App() {
             </Routes>
           </div>
         </CartProvider>
-        <Routes>
-          <Route exact path="/sign-up" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
       </ProductContextProvider>
-    </SignInProvider>
   );
 }
 
