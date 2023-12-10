@@ -9,8 +9,6 @@ const Shop = () => {
   const { product } = useContext(ProductContext);
 
   const [newPath, setNewPath] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
 
   function removeFileExtension(fileName) {
     const parts = fileName.split('.');
@@ -50,34 +48,6 @@ const Shop = () => {
     }
   });
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = chkFilter.slice(indexOfFirstItem, indexOfLastItem);
-
-  const totalPages = Math.ceil(product.length / itemsPerPage);
-  const pageNumbers = [];
-  for (
-    let i = Math.max(1, currentPage - 2);
-    i <= Math.min(totalPages, currentPage + 2);
-    i++
-  ) {
-    pageNumbers.push(i);
-  }
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const nextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
   return (
     <>
       <div className="shop">
@@ -101,7 +71,7 @@ const Shop = () => {
             </p>
           </section>
           <div className="pro-container section-p1">
-            {currentItems.map((item) => {
+            {chkFilter.map((item) => {
               const fileNameWithExtension = item.itemName;
               const fileNameWithoutExtension = removeFileExtension(
                 fileNameWithExtension,
@@ -132,27 +102,6 @@ const Shop = () => {
             })}
           </div>
         </aside>
-      </div>
-      <div id="pagination" className="section-p1">
-        <div>
-          <button onClick={prevPage} disabled={currentPage === 1}>
-            <i class="fas fa-long-arrow-alt-left"></i>
-          </button>
-
-          {pageNumbers.map((number) => (
-            <button
-              key={number}
-              onClick={() => paginate(number)}
-              className={number === currentPage ? 'active' : ''}
-            >
-              {number}
-            </button>
-          ))}
-
-          <button onClick={nextPage} disabled={currentPage === totalPages}>
-            <i class="fas fa-long-arrow-alt-right"></i>
-          </button>
-        </div>
       </div>
     </>
   );
